@@ -1,4 +1,4 @@
-# My BLOG
+# Recipe App
 
 The Recipe app keeps track of all your recipes, ingredients, and inventory. It will allow you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe. Also, the app will allow you to make them public so anyone can access them.
 
@@ -53,7 +53,7 @@ Launches the test runner.
 - Deploy on any web server that can host a Node.js runtime environment
 
 
-## Author
+## Authors
 
 👤 **Emmanuel Orji-Ihuoma**
 
