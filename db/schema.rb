@@ -33,11 +33,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_09_115303) do
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.string "name"
-    t.float "preparation_time"
-    t.float "cooking_time"
-    t.string "description"
-    t.boolean "public"
+    t.string "name", null: false
+    t.float "preparation_time", null: false
+    t.float "cooking_time", null: false
+    t.string "description", null: false
+    t.boolean "public", default: true
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
