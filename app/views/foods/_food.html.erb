@@ -1,22 +1,24 @@
 <div id="<%= dom_id food %>">
-  <p>
-    <strong>Name:</strong>
-    <%= food.name %>
-  </p>
+  
 
-  <p>
-    <strong>Measurement unit:</strong>
-    <%= food.measurement_unit %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= food.price %>
-  </p>
-
-  <p>
-    <strong>Quantinty:</strong>
-    <%= food.quantinty %>
-  </p>
-
+  <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Measurement unit</th>
+          <th>Price</th>
+          <th>Quantinty</th>
+          <
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.measurement_unit %></td>
+          <td><%= food.price %></td>
+          <td><%= food.quantinty %></td>
+          <td> <%= link_to "Show", food %></td>
+        </tr>
+      </tbody>
+    </table>
 </div>
