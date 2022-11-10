@@ -1,6 +1,29 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @recipe %>
+<div>
+  <h1><%= @recipe.name %></h1>
+</div>
+
+<div>
+  <span>Preparation time: <%= @recipe.preparation_time %></span>
+  <span><%= @recipe.public %></span>
+</div>
+
+<div>
+  <span>Cooking time<%= @recipe.cooking_time %></span>
+</div>
+
+<div>
+  <span>Steps go here...</span>
+</div>
+
+
+<div>
+  <span><%= link_to 'Generate Shopping List', new_recipe_path, class:"btn btn-secondary btn-lg" %></span>
+  <span><%= link_to 'Add Ingredient', new_recipe_path, class:"btn btn-secondary btn-lg" %></span>
+</div>
+
+
 
 <div>
   <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
