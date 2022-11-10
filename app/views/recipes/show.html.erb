@@ -1,27 +1,37 @@
 <p style="color: green"><%= notice %></p>
 
-<div>
-  <h1><%= @recipe.name %></h1>
+
+<div class="container">
+  <div class="d-flex justify-content-center p-2">
+    <h1><%= @recipe.name %></h1>
+  </div>
+
+  <div class="d-flex justify-content-between p-2">
+    <h4>Preparation time: <%= @recipe.preparation_time %> hours</h4>
+    <h4><%= @recipe.public %></h4>
+  </div>
+
+  <div class="d-flex justify-content-between p-2">
+    <h4>Cooking time<%= @recipe.cooking_time %> hours</h4>
+  </div>
+
+  <div class="d-flex justify-content-between p-2">
+    <h4>Steps go here...</h4>
+  </div>
+
+
+  <div class="d-flex justify-content-between p-2">
+    <span><%= link_to 'Generate Shopping List', new_recipe_path, class:"btn btn-secondary btn-lg" %></span>
+    <span><%= link_to 'Add Ingredient', new_recipe_path, class:"btn btn-secondary btn-lg" %></span>
+  </div>
+
+
 </div>
 
-<div>
-  <span>Preparation time: <%= @recipe.preparation_time %></span>
-  <span><%= @recipe.public %></span>
-</div>
-
-<div>
-  <span>Cooking time<%= @recipe.cooking_time %></span>
-</div>
-
-<div>
-  <span>Steps go here...</span>
-</div>
+<hr>
 
 
-<div>
-  <span><%= link_to 'Generate Shopping List', new_recipe_path, class:"btn btn-secondary btn-lg" %></span>
-  <span><%= link_to 'Add Ingredient', new_recipe_path, class:"btn btn-secondary btn-lg" %></span>
-</div>
+
 
 
 
