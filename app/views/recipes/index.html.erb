@@ -1,14 +1,21 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Recipes</h1>
+<div class="d-flex justify-content-between p-2">
+  <h2>RECIPE LIST</h2>
+  <%= link_to 'Add Recipe', new_recipe_path, class:"btn btn-success btn-lg" %>
+</div>
 
 <div id="recipes">
   <% @recipes.each do |recipe| %>
-    <%= render recipe %>
-    <p>
-      <%= link_to "Show this recipe", recipe %>
-    </p>
+    <div>
+      <div class="">
+        <span> <%= link_to recipe.name, recipe %> </span>
+        <span> <%= button_to "Remove", recipe, method: :delete, class:"btn btn-danger" %></span>
+      
+      </div>
+      <div class="">
+        <span> <%= recipe.description %> </span>
+      </div>
+    </div>
   <% end %>
 </div>
-
-<%= link_to "New recipe", new_recipe_path %>
