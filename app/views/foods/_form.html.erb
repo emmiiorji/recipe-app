@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="field form-group  p-2">
+    <%= form.text_field :name, class: "form-control", placeholder: "Name" %>
   </div>
 
-  <div>
-    <%= form.label :measurement_unit, style: "display: block" %>
-    <%= form.text_field :measurement_unit %>
+  <div class="field form-group  p-2">
+    <%= form.text_field :measurement_unit, class: "form-control", placeholder: "Measurement unit" %>
   </div>
 
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
+  <div class="field form-group  p-2">
+    <%= form.text_field :price, class: "form-control", placeholder: "Price" %>
   </div>
 
-  <div>
-    <%= form.label :quantinty, style: "display: block" %>
-    <%= form.number_field :quantinty %>
+  <div class="field form-group  p-2">
+    <%= form.number_field :quantinty, class: "form-control", placeholder: "Quantity" %>
   </div>
 
+  <div class="field form-group  p-2">
+    <%= form.text_field :user_id, class: "form-control", placeholder: "User" %>
+  </div> 
+
   <div>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
