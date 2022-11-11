@@ -8,7 +8,6 @@
 
   <div class="d-flex justify-content-between p-2">
     <h4>Preparation time: <%= @recipe.preparation_time %> hours</h4>
-    <h4><%= @recipe.public %></h4>
   </div>
 
   <div class="d-flex justify-content-between p-2">
@@ -19,43 +18,44 @@
     <h4>Steps go here...</h4>
   </div>
 
+  <hr>
 
   <div class="d-flex justify-content-between p-2">
-    <span><%= link_to 'Generate Shopping List', new_recipe_path, class:"btn btn-secondary btn-lg" %></span>
-    <span><%= link_to 'Add Ingredient', new_recipe_path, class:"btn btn-secondary btn-lg" %></span>
+    <span><%= link_to 'Generate Shopping List', general_shopping_list_path, class:"btn btn-secondary btn-lg" %></span>
+    <span><%= link_to 'Add Ingredient', public_recipes_path , class:"btn btn-secondary btn-lg" %></span>
+
   </div>
   
 
 </div>
 
 
-<hr>
+<hr class="line" />
 
-<% if @recipe.recipe_foods.count < 1 %>
-<p> The ingredient list is empty. </p>
-<% else %>
-<table class="table">
-  <tr class="table-title">
-    <th>Food</th>
-    <th>Quantity</th>
-    <th>Price</th>
-    <% if can? :modify, @recipe %>
-      <th>Actions</th>
-    <% end %>
-  </tr>
-    <% @ingredients.includes(:food).each do |ingredient| %>
+<div class="container mt-5">
+  <table class="table">
+    <thead>
       <tr>
-        <td> <%= ingredient.food.name %></td>
-        <td> <%= ingredient.quantity %> </td>
-        <td> <%= ingredient.total_price %> </td>
-        <% if can? :modify, @recipe %>
-          <td> <%= button_to 'Delete', user_recipe_recipe_food_path(current_user, @recipe, ingredient), method: :delete, class: 'login-button remove' %> </td>
-        <% end %>
+        <th scope="col">Food</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Value</th>
+        <th scope="col">Action</th>
       </tr>
-    <% end %>
-</table>
-<% end %>
-
+    </thead>
+    <tbody>
+      <% @recipe.recipe_foods.each do |recipe_food| %>
+      <tr>
+        <td><%= recipe_food.food.name.capitalize %></td>
+        <td><%= recipe_food.food.quantity.capitalize %></td>
+        <td><%= recipe_food.food.price %></td>
+        <td><%= link_to 'Modify', edit_food_path(recipe_food.food) ,class: "btn btn-outline-primary underline" %>
+          <span><%= link_to 'Remove', food_path(recipe_food.food), data: { turbo_method: 'delete', turbo_confirm: "Are you sure to delete" }, class: "btn btn-outline-danger underline" %></span>
+        </td>
+      </tr>
+    </tbody>
+    <%end%>
+  </table>
+</div>
 
 
 
