@@ -7,13 +7,25 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
 
+  def public_list
+    @recipes = Recipe.public_list
+  end
+
+
   # GET /recipes/1 or /recipes/1.json
   def show
+    @recipe = Recipe.find(params[:id])
+    @ingredients = @recipe.recipe_foods
   end
 
   # GET /recipes/new
   def new
     @recipe = Recipe.new
+  end
+
+  def shopping_list
+    @recipes = current_user.list_recipes
+    @new_ingredients_data, @new_ingredients_total_price = current_user.new_ingredients_information
   end
 
   # GET /recipes/1/edit
@@ -23,6 +35,7 @@ class RecipesController < ApplicationController
   # POST /recipes or /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
+    @recipe.user = current_user
 
     respond_to do |format|
       if @recipe.save
