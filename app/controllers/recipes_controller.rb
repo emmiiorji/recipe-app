@@ -7,8 +7,8 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
 
-  def public_list
-    @recipes = Recipe.public_list
+  def public_recipes
+    @recipes = Recipe.all
   end
 
 
