@@ -45,8 +45,8 @@
     <tbody>
       <% @recipe.recipe_foods.each do |recipe_food| %>
       <tr>
-        <td><%= recipe_food.food.name.capitalize %></td>
-        <td><%= recipe_food.food.quantity.capitalize %></td>
+        <td><%= recipe_food.food.name %></td>
+        <td><%= recipe_food.food.quantity %></td>
         <td><%= recipe_food.food.price %></td>
         <td><%= link_to 'Modify', edit_food_path(recipe_food.food) ,class: "btn btn-outline-primary underline" %>
           <span><%= link_to 'Remove', food_path(recipe_food.food), data: { turbo_method: 'delete', turbo_confirm: "Are you sure to delete" }, class: "btn btn-outline-danger underline" %></span>

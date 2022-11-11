@@ -10,20 +10,28 @@
   <% if @new_ingredients_data.empty?%>
     <p>You have all the ingredients necessary to do all your recipes!</p>
   <% else %>
-    <table>
-      <tr>
-        <th> Food </th>
-        <th> Quantity </th>
-        <th> Price </th>
-      </tr>
-
+  <table class="table table-striped table-bordered table-hover">
+  <thead class="table-secondary">
+    <tr>
+      <th><table class="table table-striped table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Name</th>
+          <th>Quantity unit</th>
+          <th>Price</th>
+        <tr>
+      </thead>
+      <tbody>
       <% @new_ingredients_data.each do |ingredient| %>
-      <tr>
-        <td> <%= ingredient[:name] %> </td>
-        <td> <%= ingredient[:quantity] %> </td>
-        <td> <%= ingredient[:price] %> </td>
-      </tr>
-      <% end %>
+        <tr>
+          <td> <%= ingredient[:name] %> </td>
+          <td> <%= ingredient[:quantity] %> </td>
+          <td> <%= ingredient[:price] %> </td>
+        </tr>
+        <% end %>
+      </tbody>
     </table>
   <% end %>
 </section>
+
+

@@ -11,7 +11,7 @@
       </div>
     <% end %>
   
-    <div>
+    <div class="field form-group  p-3">
       <%= form.label 'Ingredient', style: "display: block" %>
       <select name="recipe_food[food_id]">
         <% current_user.foods.each do |food| %>
@@ -20,17 +20,19 @@
       </select>
     </div>
   
-    <div>
+    <div class="field form-group  p-3">
       <%= form.label :quantity, style: "display: block" %>
       <%= form.number_field :quantity %>
     </div>
 
-    <div class="field form-group  p-2">
-    <%= form.number_field :recipe_id, id: :recipe_id, class: "form-control", value: current_user.id %>
-    </div> 
+    <div class="field form-group  p-3">
+      <%= form.label :recipe_id , style: "display: block" %>
+      <%= form.number_field :recipe_id %>
+    </div>
+
   
-    <div>
-      <%= form.submit %>
+    <div class="field form-group  p-3">
+      <%= form.submit class: "btn btn-primary" %>
     </div>
   <% end %>
   
