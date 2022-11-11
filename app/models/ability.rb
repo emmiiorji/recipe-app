@@ -4,18 +4,13 @@ class Ability
   def initialize(user)
     # Define abilities for the user here. For example:
 
-    #can :read, Recipe, public: true # Any user can do
-
- 
-
+    # can :read, Recipe, public: true # Any user can do
 
     return unless user.present?
 
-    can :read, Recipe, public: true 
+    can :read, Recipe, public: true
     can :destroy, Recipe, user: user
-    can :modify, Recipe, user: user
-
-
+    can :modify, Recipe, user:
 
     # return unless user.admin? # An adminstartaor can do
 

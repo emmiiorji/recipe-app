@@ -23,7 +23,7 @@ class User < ApplicationRecord
 
     list_recipes.includes(:recipe_foods).each do |recipe|
       all_ingredients.push(recipe.recipe_foods)
-      all_ingredients_price += 0 #recipe.total_price
+      all_ingredients_price += 0 # recipe.total_price
     end
 
     [all_ingredients.flatten!, all_ingredients_price]
@@ -43,7 +43,7 @@ class User < ApplicationRecord
       end
 
       new_ingredient_quantity = ingredients_quantity - food.quantity
-      new_ingredient_price = (ingredients_quantity * food.price) - 0 #food.total_price
+      new_ingredient_price = (ingredients_quantity * food.price) - 0 # food.total_price
 
       if new_ingredient_quantity.positive?
         new_ingredients.push({ name: food.name, quantity: new_ingredient_quantity, price: new_ingredient_price })
