@@ -13,9 +13,9 @@ Rails.application.routes.draw do
 
 
 
-  get 'public_recipes', to: 'recipes#public_recipe'
+  get 'public_recipes', to: 'recipes#public_recipes'
+  get 'shopping_list', to: 'shopping_list#shopping_list' 
 
-  
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
