@@ -7,17 +7,19 @@
 
 <div id="recipes">
   <% @recipes.each do |recipe| %>
-    <div class="container">
-    <div class="row justify-content-start">
-      <div class="col-sm-3 p-2 border border-secondary">
-        <span> <%= link_to recipe.name, recipe %> </span>
-        <span> <%= button_to "Remove", recipe, method: :delete, class:"btn btn-danger" %></span>
-      
+    <% if current_user.id == recipe.user_id%>
+      <div class="container">
+        <div class="row justify-content-start">
+          <div class="col-sm-3 p-2 border border-secondary">
+            <span> <%= link_to recipe.name, recipe %> </span>
+            <span> <%= button_to "Remove", recipe, method: :delete, class:"btn btn-danger" %></span>
+          
+          </div>
+          <div class="col-sm-9 p-2 border border-secondary">
+            <span> <%= recipe.description %> </span>
+          </div>
+        </div>
       </div>
-      <div class="col-sm-9 p-2 border border-secondary">
-        <span> <%= recipe.description %> </span>
-      </div>
-    </div>
-  </div>
+    <% end %>
   <% end %>
 </div>

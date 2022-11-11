@@ -11,7 +11,7 @@ class Ability
 
     return unless user.present?
 
-    can :read, Recipe
+    can :read, Recipe, public: true 
     can :destroy, Recipe, user: user
     can :modify, Recipe, user: user
 
