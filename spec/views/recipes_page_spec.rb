@@ -4,9 +4,9 @@ RSpec.describe 'Food page', type: :feature do
   before(:each) do
     DatabaseCleaner.clean_with(:truncation)
     @user = User.create(
-        name: 'Benson',
-        email: 'ben1@gmail.com',
-        password: '123456'
+      name: 'Benson',
+      email: 'ben1@gmail.com',
+      password: '123456'
     )
     visit user_session_path
     fill_in 'Email', with: @user.email.to_s
@@ -28,7 +28,6 @@ RSpec.describe 'Food page', type: :feature do
     visit recipes_path
     expect(page).to have_content('RECIPE LIST')
   end
-
 
   it 'shows the Logo in the navbar' do
     expect(page).to have_content('Recipe App')
@@ -56,6 +55,4 @@ RSpec.describe 'Food page', type: :feature do
     visit recipe_path(@recipe1)
     expect(page).to have_content(@recipe1.cooking_time.to_s)
   end
-
-
 end

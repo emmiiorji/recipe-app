@@ -20,5 +20,4 @@ RSpec.describe 'home page', type: :feature do
   it 'shows the Login' do
     expect(page).to have_content('LogIn')
   end
-
 end
