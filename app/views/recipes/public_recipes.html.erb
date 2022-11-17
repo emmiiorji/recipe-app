@@ -1,0 +1,31 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="d-flex justify-content-between p-2">
+  <h2>PUBLIC RECIPE</h2>
+</div>
+
+<div id="recipes">
+  <% @recipes.each do |recipe| %>
+    <%if can? :read, recipe%>
+    <div class="container">
+      <div class="row justify-content-start">
+        <div class="col-sm-3 p-2 border border-secondary">
+          <h3> <%= recipe.name %></h3>
+          <h6>Made By: <%= recipe.user.name %></h6>
+        </div>
+        <div class="col-sm-9 p-2 border border-secondary">
+          <p>Total food items: <%=recipe.recipe_foods.count%></p>
+          <p>Total price:
+            <%a = 0%>
+            <% recipe.recipe_foods.each do |recipefood| %>
+            <% a += recipefood.food.price.to_int %>
+            <%end%>
+            <%= a%> $
+          </p>   
+            <span><%= link_to 'View', recipe_path(recipe), class: "btn btn-outline-success" %></span>  
+        </div>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+</div>

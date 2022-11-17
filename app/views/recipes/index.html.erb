@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="d-flex justify-content-between p-2">
+  <h2>RECIPE LIST</h2>
+  <%= link_to 'Add Recipe', new_recipe_path, class:"btn btn-success btn-lg" %>
+</div>
+
+<div id="recipes">
+  <% @recipes.each do |recipe| %>
+    <% if current_user.id == recipe.user_id%>
+      <div class="container">
+        <div class="row justify-content-start">
+          <div class="col-sm-3 p-2 border border-secondary">
+            <h3> <%= link_to recipe.name, recipe %> </h3>
+            <span> <%= button_to "Remove", recipe, method: :delete, class:"btn btn-danger" %></span>
+          
+          </div>
+          <div class="col-sm-9 p-2 border border-secondary">
+            <span> <%= recipe.description %> </span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
