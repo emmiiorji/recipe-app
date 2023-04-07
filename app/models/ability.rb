@@ -9,7 +9,7 @@ class Ability
     return unless user.present?
 
     can :read, Recipe, public: true
-    can :destroy, Recipe, user: user
+    can(:destroy, Recipe, user:)
     can :modify, Recipe, user:
 
     # return unless user.admin? # An adminstartaor can do
